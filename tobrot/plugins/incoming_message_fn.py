@@ -28,7 +28,7 @@ from tobrot.helper_funcs.youtube_dl_extractor import extract_youtube_dl_formats
 
 
 async def incoming_message_f(client, message):
-    """/leech command"""
+    """/download command"""
     i_m_sefg = await message.reply_text("Sedang di proses", quote=True)
     is_zip = False
     if len(message.command) > 1:
@@ -66,7 +66,7 @@ async def incoming_message_f(client, message):
             # if FAILED, display the error message
             await i_m_sefg.edit_text(err_message)
     else:
-        await i_m_sefg.edit_text("**Hei Kau!** Ayo lagi ngapain Kamu cuma pakai command /leech tampa link 🤣.")
+        await i_m_sefg.edit_text("**Hei Kau!** Ayo lagi ngapain Kamu cuma pakai command /download tampa link 🤣. Harap reply dulu linknya terus /download")
 
 
 async def incoming_youtube_dl_f(client, message):
