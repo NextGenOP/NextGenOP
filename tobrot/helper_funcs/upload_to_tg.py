@@ -45,7 +45,7 @@ async def upload_to_tg(
     # caption_str += "<a href='tg://user?id="
     # caption_str += str(from_user)
     # caption_str += "'>"
-    # caption_str += "Here is the file to the link you sent"
+    # caption_str += "Disini berkas yang kamu kirim berupa link tadi"
     # caption_str += "</a>"
     if os.path.isdir(local_file_name):
         directory_contents = os.listdir(local_file_name)
@@ -70,9 +70,9 @@ async def upload_to_tg(
             LOGGER.info("TODO")
             d_f_s = humanbytes(os.path.getsize(local_file_name))
             i_m_s_g = await message.reply_text(
-                "Telegram does not support uploading this file.\n"
-                f"Detected File Size: {d_f_s} 😡\n"
-                "\n🤖 trying to split the files 🌝🌝🌚"
+                "Mohon maaf berkas berukuran lebih dari 1.5,GB tidak bisa di upload.\n"
+                f"Terdeteksi ukuran berkas: {d_f_s} \n"
+                "\nMencoba membagi beberapa berkas 😁"
             )
             splitted_dir = await split_large_files(local_file_name)
             totlaa_sleif = os.listdir(splitted_dir)
@@ -81,9 +81,9 @@ async def upload_to_tg(
             LOGGER.info(totlaa_sleif)
             ba_se_file_name = os.path.basename(local_file_name)
             await i_m_s_g.edit_text(
-                f"Detected File Size: {d_f_s} 😡\n"
-                f"<code>{ba_se_file_name}</code> splitted into {number_of_files} files.\n"
-                "trying to upload to Telegram, now ..."
+                f"Terdeteksi ukuran berkas: {d_f_s} \n"
+                f"<code>{ba_se_file_name}</code> Mencoba membagi {number_of_files} berkas.\n"
+                "Mencoba meng-upload kembali ke Telegram, Sekarang ..."
             )
             for le_file in totlaa_sleif:
                 # recursion: will this FAIL somewhere?
@@ -178,7 +178,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user):
                 reply_to_message_id=message.reply_to_message.message_id,
                 progress=progress_for_pyrogram,
                 progress_args=(
-                    "trying to upload",
+                    "Mencoba kembali untuk meng-upload",
                     message_for_progress_display,
                     start_time
                 )
@@ -219,7 +219,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user):
                 reply_to_message_id=message.reply_to_message.message_id,
                 progress=progress_for_pyrogram,
                 progress_args=(
-                    "trying to upload",
+                    "Mencoba kembali untuk meng-upload",
                     message_for_progress_display,
                     start_time
                 )
@@ -250,7 +250,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user):
                 reply_to_message_id=message.reply_to_message.message_id,
                 progress=progress_for_pyrogram,
                 progress_args=(
-                    "trying to upload",
+                    "Mencoba kembali untuk meng-upload",
                     message_for_progress_display,
                     start_time
                 )
@@ -258,7 +258,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user):
             if thumb is not None:
                 os.remove(thumb)
     except Exception as e:
-        await message_for_progress_display.edit_text("**FAILED**\n" + str(e))
+        await message_for_progress_display.edit_text("**GAGAL**\n" + str(e))
     else:
         await message_for_progress_display.delete()
     os.remove(local_file_name)
