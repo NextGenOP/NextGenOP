@@ -137,7 +137,7 @@ async def call_apropriate_function(
                 None
             )
         else:
-            return False, "can't get metadata \n\n#stopped"
+            return False, "tidak dapat mendapatkan metadata \n\n#stopped"
     await asyncio.sleep(1)
     file = aria_instance.get_download(err_message)
     to_upload_file = file.name
@@ -177,7 +177,7 @@ async def call_apropriate_function(
         message_to_send = mention_req_user + message_to_send
         message_to_send = message_to_send + "\n\n" + "#uploads"
     else:
-        message_to_send = "<i>FAILED</i> to upload files. 😞😞"
+        message_to_send = "<i>GAGAL</i> meng-upload berkas. 😞😞"
     await sent_message_to_update_tg_p.reply_to_message.reply_text(
         text=message_to_send,
         quote=True,
@@ -223,11 +223,11 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
             await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
             await check_progress_for_dl(aria2, gid, event, previous_message)
         else:
-            await event.edit(f"Berkas yang kamu sudah selesai di download: `{file.name}`")
+            await event.edit(f"Berkas kamu sudah selesai di download: `{file.name}`")
             return True
     except Exception as e:
         LOGGER.info(str(e))
-        if " not found" in str(e) or "'file'" in str(e):
+        if " tidak ditemukan" in str(e) or "'berkas'" in str(e):
             await event.edit("Download Dibatalkan :( :\n`{}`".format(file.name))
             return False
         elif " depth exceeded" in str(e):
