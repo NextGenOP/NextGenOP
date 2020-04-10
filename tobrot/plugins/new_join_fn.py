@@ -38,7 +38,7 @@ async def help_message_f(client, message):
     message_id = 99
     # display the /help message
     await message.reply_text(
-        f"Ada yang bisa saya bantu? Command dasar bot ini",
+        f"Halo ada yang bisa saya bantu? Untuk menggunakan bot ini harap pakai commad /download.",
         quote=True
     )
 
