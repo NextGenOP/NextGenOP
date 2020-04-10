@@ -84,11 +84,11 @@ async def cancel_message_f(client, message):
             LOGGER.info(downloads)
             LOGGER.info(downloads.remove(force=True))
             await i_m_s_e_g.edit_text(
-                "Leech Cancelled"
+                "Leech Dibatalkan"
             )
         except Exception as e:
             await i_m_s_e_g.edit_text(
-                "<i>FAILED</i>\n\n" + str(e) + "\n#error"
+                "<i>GAGAL</i>\n\n" + str(e) + "\n#error"
             )
     else:
         await message.delete()
