@@ -68,14 +68,14 @@ async def status_message_f(client, message):
             msg += "\n\n"
         LOGGER.info(msg)
         if msg == "":
-            msg = "🤷‍♂️ No Active, Queued or Paused TORRENTs"
+            msg = "🤷‍♂️ Maaf tidak ada apa-apa disini"
         await message.reply_text(msg, quote=True)
 
 
 async def cancel_message_f(client, message):
     if len(message.command) > 1:
         # /cancel command
-        i_m_s_e_g = await message.reply_text("checking..?", quote=True)
+        i_m_s_e_g = await message.reply_text("memeriksa..?", quote=True)
         aria_i_p = await aria_start()
         g_id = message.command[1].strip()
         LOGGER.info(g_id)
