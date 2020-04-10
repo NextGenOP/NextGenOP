@@ -66,7 +66,7 @@ async def incoming_message_f(client, message):
             # if FAILED, display the error message
             await i_m_sefg.edit_text(err_message)
     else:
-        await i_m_sefg.edit_text("**Hei Kau** apaan yang kamu masukan. Silahkan baca /help")
+        await i_m_sefg.edit_text("**Hei Kau!** Ayo lagi ngapain Kamu cuma pakai command /leech tampa link 🤣.")
 
 
 async def incoming_youtube_dl_f(client, message):
