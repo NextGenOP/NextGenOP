@@ -48,7 +48,7 @@ async def extract_youtube_dl_formats(url, user_working_dir):
     if e_response:
         # logger.warn("Status : FAIL", exc.returncode, exc.output)
         error_message = e_response.replace(
-            "please report this issue on https://yt-dl.org/bug . Make sure you are using the latest version; see  https://yt-dl.org/update  on how to update. Be sure to call youtube-dl with the --verbose flag and include its complete output.", ""
+            "Tolong laporkan masalah ini di https://yt-dl.org/bug. Pastikan Anda menggunakan versi terbaru; lihat https://yt-dl.org/update tentang cara memperbarui. Pastikan untuk memanggil youtube-dl dengan flag --verbose dan sertakan output lengkapnya."
         )
         return error_message, None
     if t_response:
@@ -94,7 +94,7 @@ async def extract_youtube_dl_formats(url, user_working_dir):
                                 )
                             ]
                     else:
-                        if format_string is not None and not "audio only" in format_string:
+                        if format_string is not None and not "audio saja" in format_string:
                             ikeyboard = [
                                 pyrogram.InlineKeyboardButton(
                                     dipslay_str_uon,
