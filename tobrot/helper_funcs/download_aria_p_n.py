@@ -173,7 +173,7 @@ async def call_apropriate_function(
         message_to_send += "</a>"
         message_to_send += "\n"
     if message_to_send != "":
-        mention_req_user = f"<a href='tg://user?id={user_id}'>Ini Dia berkas yang kamu kirim</a>\n\n"
+        mention_req_user = f"<a href='tg://user?id={user_id}'>Ini Dia berkas yang di download tadi</a>\n\n"
         message_to_send = mention_req_user + message_to_send
         message_to_send = message_to_send + "\n\n" + "#uploads"
     else:
@@ -210,7 +210,7 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
                 msg += f"\nPerkembangan: {file.progress_string()}"
                 msg += f"\nTotal Size: {file.total_length_string()}"
                 # msg += f"\nStatus: {file.status}"
-                msg += f"\nETA: {file.eta_string()}"
+                msg += f"\nSisa Waktu: {file.eta_string()}"
                 msg += f"\n<code>/cancel {gid}</code>"
                 # LOGGER.info(msg)
                 if msg != previous_message:
@@ -232,7 +232,7 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
             return False
         elif " depth exceeded" in str(e):
             file.remove(force=True)
-            await event.edit("Download Otomatis Dibatalkan :\n`{}`\nTorrent Kamu/Link Sudah Mati.".format(file.name))
+            await event.edit("Download Otomatis Dibatalkan :\n`{}`\nTorrent Kamu/Link Sudah Mati(Expire).".format(file.name))
             return False
         else:
             LOGGER.info(str(e))
