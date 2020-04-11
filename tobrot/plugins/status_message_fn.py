@@ -74,7 +74,7 @@ async def status_message_f(client, message):
 
 async def cancel_message_f(client, message):
     if len(message.command) > 1:
-        # /cancel command
+        # /batal command
         i_m_s_e_g = await message.reply_text("memeriksa..?", quote=True)
         aria_i_p = await aria_start()
         g_id = message.command[1].strip()
@@ -84,7 +84,7 @@ async def cancel_message_f(client, message):
             LOGGER.info(downloads)
             LOGGER.info(downloads.remove(force=True))
             await i_m_s_e_g.edit_text(
-                "Leech Dibatalkan"
+                "Download Dibatalkan"
             )
         except Exception as e:
             await i_m_s_e_g.edit_text(
