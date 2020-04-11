@@ -72,31 +72,31 @@ if __name__ == "__main__" :
     #
     cancel_message_handler = MessageHandler(
         cancel_message_f,
-        filters=Filters.command(["cancel"]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command(["batal"]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(cancel_message_handler)
     #
     exec_message_handler = MessageHandler(
         exec_message_f,
-        filters=Filters.command(["exec"]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command(["terminal"]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(exec_message_handler)
     #
     rename_message_handler = MessageHandler(
         rename_message_f,
-        filters=Filters.command(["rename"]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command(["ubah"]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(rename_message_handler)
     #
     upload_document_handler = MessageHandler(
         upload_document_f,
-        filters=Filters.command(["upload"]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command(["unggah"]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(upload_document_handler)
 
     help_text_handler = MessageHandler(
         help_message_f,
-        filters=Filters.command(["help"]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command(["bantuan"]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(help_text_handler)
     #
