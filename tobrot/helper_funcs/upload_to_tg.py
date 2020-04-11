@@ -190,11 +190,11 @@ async def upload_single_file(message, local_file_name, caption_str, from_user):
             duration = 0
             title = ""
             artist = ""
-            if metadata.has("duration"):
+            if metadata.has("durasi"):
                 duration = metadata.get('duration').seconds
-            if metadata.has("title"):
+            if metadata.has("judul"):
                 title = metadata.get("title")
-            if metadata.has("artist"):
+            if metadata.has("artis"):
                 artist = metadata.get("artist")
             thumb_image_path = None
             if os.path.isfile(thumbnail_location):
