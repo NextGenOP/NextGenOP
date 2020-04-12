@@ -66,7 +66,7 @@ if __name__ == "__main__" :
     #
     status_message_handler = MessageHandler(
         status_message_f,
-        filters=Filters.command(["status"]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command(["daftar"]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(status_message_handler)
     #
@@ -119,13 +119,13 @@ if __name__ == "__main__" :
     #
     save_thumb_nail_handler = MessageHandler(
         save_thumb_nail,
-        filters=Filters.command(["savethumbnail"]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command(["simpangambar"]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(save_thumb_nail_handler)
     #
     clear_thumb_nail_handler = MessageHandler(
         clear_thumb_nail,
-        filters=Filters.command(["clearthumbnail"]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command(["hapusgambar"]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(clear_thumb_nail_handler)
     #
